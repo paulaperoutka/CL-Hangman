@@ -1,24 +1,40 @@
-//constructor function that also takes in user input
-function Letters = function(userLetter) {
-	this.letter = userLetter;
-	this.correctGuess = false;
+// constructor function to display underlying letters or placeholders for game word
+function Letter(underCharacter) {
 
-	this.renderLetter = function () {
-//read spaces as "correct"  and render
-		if (this.letter === " "){
-      this.correctGuess = true;
-      return " ";
-		}
-//if guess is incorrect return underscore
-		if (this.correctGuess === false){
-		  return "_ ";
-		} 
-//else return the user's correct guess/underlying letter
-		else {
-			this.correctGuess = true;
-			return this.letter;
-		}
-	};
+//store underlying character for letter
+  this.underCharacter = underCharacter;
+//has letter been guessed or not
+  this.letterGuessed = false;
+//returns underlying character OR underscore as placeholder depending on if letter guessed or not
+  this.renderLetter = function () {
+      if (this.letterGuessed) {
+        console.log(this.underCharacter)
+        return this.underCharacter;
+      }
+      else {
+        console.log("_");
+        return "_";
+      }
+  };
+//takes character as argument and checks against underlying character
+  this.checkChar = function (guessedCharacter) {
+    if (guessedCharacter === this.underCharacter) {
+      this.letterGuessed = true;
+    }
+  }
 };
 
+// let testConstructFalse = new Letter("a");
+// testConstructFalse.checkChar("b");
+// testConstructFalse.renderLetter();
+// console.log(testConstructFalse.letterGuessed);
+
+// let testConstructTrue = new Letter("a");
+// testConstructTrue.checkChar("a");
+// testConstructTrue.renderLetter();
+// console.log(testConstructTrue.letterGuessed);
+
 module.exports = Letter;
+
+
+
