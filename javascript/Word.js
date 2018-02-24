@@ -19,7 +19,8 @@ function Word (wordFromList) {
   	for (var j = 0; j<this.wordLetters.length; j++) {
   		letterGuesses += this.wordLetters[j].renderLetter();
   	}
-  	letterGuesses.toString();
+  	//this isn't working either
+  	// letterGuesses.toString();
   	return letterGuesses;
   };
  // function taking character arg and calls second letters function
@@ -28,15 +29,18 @@ function Word (wordFromList) {
  		for (var k = 0; k<this.wordLetters.length; k++) {
  			let thisLetter = this.wordLetters[k].underCharacter;
  			console.log(thisLetter);
-//not working when I try to use the object data ? 			
+//checkChar not working when I try to use the object data unless I use this.wordLetters, but then how do I access inner data? 			
  			thisLetter.checkChar(guessedLetter);
  		}
  	};
 };
 
-let testConstruct = new Word("hello");
-testConstruct.lettersToArray();
-testConstruct.wordString();
-testConstruct.letterFound("h");
+// let testConstruct = new Word("hello");
+// testConstruct.lettersToArray();
+// testConstruct.wordString();
+
+//this last one has error ar checkChar
+// testConstruct.letterFound("h");
+
 module.exports = Word;
 
